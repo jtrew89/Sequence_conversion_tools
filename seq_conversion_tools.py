@@ -39,20 +39,20 @@ if args.out_directory:
     with open(args.in_filename, 'r') as input_handle:
         with open(args.out_filename, 'w') as output_handle:
             ##convert and write out sequence file
-            alignment = AlignIO.parse(input_handle, args.in_type)
+            alignment = AlignIO.read(input_handle, args.in_type)
             seq_out = AlignIO.write(alignment, output_handle, args.out_type)
             ##some alignment stats output automatically
-#           print('Alignment length is %i' % alignment.get_alignment_length())
-#           print(subprocess.call(['grep', '-c', '>', 'test_fasta.fasta']) 'sequences in this alignment')
+            print('Alignment length is %i' % alignment.get_alignment_length())
+            print('%i sequences in alignment' % len(alignment))
 
 else:
     with open(args.in_filename, 'r') as input_handle:
         with open(args.out_filename, 'w') as output_handle:
             ##convert and write out sequence file
-            alignment = AlignIO.parse(input_handle, args.in_type)
+            alignment = AlignIO.read(input_handle, args.in_type)
             seq_out = AlignIO.write(alignment, output_handle, args.out_type)
             ##some alignment stats output automatically
-#           print('Alignment length is %i' % alignment.get_alignment_length())
-#           print(subprocess.call(['grep', '-c', '>', 'test_fasta.fasta']) 'sequences in this alignment')
+            print('Alignment length is %i' % alignment.get_alignment_length())
+            print('%i sequences in alignment' % len(alignment))
 
 #if args.fastq:
